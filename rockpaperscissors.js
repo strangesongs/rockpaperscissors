@@ -30,42 +30,40 @@ function playRound(choice1, choice2) {
           return ('Scissors cuts paper! You win!'); 
         } else if (choice1 == 'scissors' && choice2 == 'rock') {
           computerWin == true;
-          return ('Rock beats scissors! You lose.!');
+          return ('Rock beats scissors! You lose!');
         } else if (choice1 == choice2 ) {
           return ('Tie! You must select a different weapon!');
         }
         }   
 
-function game(score) {
-        var playerSelection = prompt('Rock, paper or scissors?');
-        var computerSelection = computerChoice();
+function game() {
+        
         var playerScore = 0;
         var computerScore = 0;
 
         for (var i = 0; i < 5; i++) {
+            var playerSelection = prompt('Rock, paper or scissors?');
+            var computerSelection = computerChoice();
             playRound(playerSelection, computerSelection);
             console.log("You chose: " + playerSelection);
             console.log("The computer chose: " + computerSelection);
             console.log(playRound(playerSelection, computerSelection));
-            
-            if (userWin == true) {
+        
+            if (userWin = true) {
             playerScore++;
             console.log("You won the round! Your score is ", playerScore, "and the computer's score is ", computerScore);
 
-        } else if (computerWin == true) {
+        }   else if (computerWin = true) {
             computerScore++;
             console.log("You lost the round! Your score is ", playerScore, "and the computer's score is ", computerScore);
+            
         }
 
-        return playerScore, computerScore;
+    
       }
-        //    console.log("You win! The final score is ", playerScore, "to ", computerScore);
-        //} 
-        //      console.log("You lose! The final score is ",  playerScore,  "to ", computerScore);
-        //} else {
-        //}
-      ///}
-        
+
     }
+  
 
 game();
+
