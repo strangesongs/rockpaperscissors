@@ -1,18 +1,71 @@
-function computerPlay 
+function computerChoice() {
+        let choices = ['rock', 'paper', 'scissors'];
+        let result = choices[Math.floor(Math.random() * choices.length)];
+        return result
+      };
+      
+function playerChoice() {
+        let playerChoice = prompt('Rock, paper or scissors?');
+        return playerChoice.toLowerCase();
+      }
 
-// should randomly choose from rock, paper or scissors as the computer guess
+var userWin;
+var computerWin;
 
-function playRound 
+function playRound(choice1, choice2) {
+        if (choice1 == 'rock' && choice2 == 'paper') {
+          userWin = true;
+          return ('Paper beats rock! You lose!');
+        } else if (choice1 == 'rock' && choice2 == 'scissors') {
+          userWin = true;
+          return ('Rock smash scissors! You win!');
+        } else if (choice1 == 'paper' && choice2 == 'rock') {
+          userWin = true;
+          return ('Paper covers rock! You win!');
+        } else if (choice1 == 'paper' && choice2 == 'scissors') {
+          computerWin == true;
+          return ('Scissors cuts paper! You lose.'); 
+        } else if (choice1 == 'scissors' && choice2 == 'paper') {
+          userWin = true;
+          return ('Scissors cuts paper! You win!'); 
+        } else if (choice1 == 'scissors' && choice2 == 'rock') {
+          computerWin == true;
+          return ('Rock beats scissors! You lose.!');
+        } else if (choice1 == choice2 ) {
+          return ('Tie! You must select a different weapon!');
+        }
+        }   
 
-// should take two parameters -- computerPLay and computerSelection -- and then return a string with the winner and loser of each game
+function game(score) {
+        var playerSelection = prompt('Rock, paper or scissors?');
+        var computerSelection = computerChoice();
+        var playerScore = 0;
+        var computerScore = 0;
 
-if userGuess == guess compare to computerGuess and determine result
+        for (var i = 0; i < 5; i++) {
+            playRound(playerSelection, computerSelection);
+            console.log("You chose: " + playerSelection);
+            console.log("The computer chose: " + computerSelection);
+            console.log(playRound(playerSelection, computerSelection));
+            
+            if (userWin == true) {
+            playerScore++;
+            console.log("You won the round! Your score is ", playerScore, "and the computer's score is ", computerScore);
 
-function Game will use previous function (playRound) to keep score of each round and then return the result and update the score
+        } else if (computerWin == true) {
+            computerScore++;
+            console.log("You lost the round! Your score is ", playerScore, "and the computer's score is ", computerScore);
+        }
 
-// i'll need the following variables:
-userGuess (which will be inputted by user via prompt)
-computerGuess (which will be randomly chosen)
-gameScore
-guesses 
+        return playerScore, computerScore;
+      }
+        //    console.log("You win! The final score is ", playerScore, "to ", computerScore);
+        //} 
+        //      console.log("You lose! The final score is ",  playerScore,  "to ", computerScore);
+        //} else {
+        //}
+      ///}
+        
+    }
 
+game();
